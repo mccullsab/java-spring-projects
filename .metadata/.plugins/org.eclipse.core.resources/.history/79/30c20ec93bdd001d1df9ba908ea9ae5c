@@ -1,0 +1,5 @@
+package com.abbymcculloch.bookclub.models;
+
+public class User {
+
+}

@@ -1,0 +1,5 @@
+package com.abbymcculloch.blackbelt.repositories;
+
+public interface NameRepository {
+
+}

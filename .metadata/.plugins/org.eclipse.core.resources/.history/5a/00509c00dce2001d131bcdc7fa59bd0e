@@ -1,0 +1,5 @@
+package com.abbymcculloch.lighthouse.services;
+
+public class UserService {
+
+}

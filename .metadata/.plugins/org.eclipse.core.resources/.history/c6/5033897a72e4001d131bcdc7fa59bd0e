@@ -1,0 +1,11 @@
+*{
+	font-family: 'Lato', sans-serif;
+	mar/*  */gin: 5px;
+}
+
+.header{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: white;
+}

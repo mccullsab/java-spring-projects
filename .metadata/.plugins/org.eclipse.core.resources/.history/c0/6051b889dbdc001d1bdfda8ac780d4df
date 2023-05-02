@@ -1,0 +1,43 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ page isErrorPage="true"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Create Ninja</title>
+</head>
+<body>
+	<h1>Create Ninja</h1>
+	<form:form action="/ninjas" method="POST" modelAttribute="ninja">
+		<p>
+			<form:label path="ninjaFirstName"> Ninja first name</form:label>
+			<form:input type="text" path="ninjaFirstName" />
+			<form:errors path="ninjaFirstName" />
+		</p>
+		<p>
+			<form:label path="ninjaLastName"> Ninja last name</form:label>
+			<form:input type="text" path="ninjaLastName" />
+			<form:errors path="ninjaLastName" />
+		</p>
+		<p>
+			<form:label path="age"> Ninja age</form:label>
+			<form:input type="number" path="age" />
+			<form:errors path="age" />
+		</p>
+		<div>
+			<form:label path="dojo">Select Dojo:</form:label>
+			<form:select path="dojo">
+			<c:forEach var="dojo" items="${dojos }">
+				<form:option value="${dojos.DojoName }">
+					<c:out value="${dojos }" />
+				</form:option>
+			</c:forEach>
+			</form:select>
+		</div>
+		<button type="submit">Create Ninja</button>
+	</form:form>
+</body>
+</html>

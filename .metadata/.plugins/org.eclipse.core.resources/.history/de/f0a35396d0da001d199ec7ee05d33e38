@@ -1,0 +1,10 @@
+package com.abbymcculloch.dojosninjas.repositories;
+
+import java.util.List;
+
+import com.abbymcculloch.dojosninjas.models.Dojo;
+
+public interface DojoRepository {
+	List<Dojo> findAll();
+
+}

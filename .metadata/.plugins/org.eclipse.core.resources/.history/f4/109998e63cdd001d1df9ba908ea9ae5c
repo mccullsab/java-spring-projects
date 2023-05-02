@@ -1,0 +1,6 @@
+package com.abbymcculloch.bookclub.repositories;
+
+
+public interface BookRepository extends CrudRepository<Donation, Long> {
+
+}

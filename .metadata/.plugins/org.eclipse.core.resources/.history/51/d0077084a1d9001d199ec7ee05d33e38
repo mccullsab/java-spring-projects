@@ -1,0 +1,24 @@
+package com.abbymcculloch.savetravels.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.abbymcculloch.savetravels.services.ExpenseService;
+
+@Controller
+public class HomeController {
+	
+	@Autowired
+	private ExpenseService expenseService;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

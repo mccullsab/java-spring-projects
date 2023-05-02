@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.abbymcculloch.lookify.models.Artist&apos; to &apos;Song&apos;&#x0A;- Original project: &apos;lookify&apos;&#x0A;- Original element: &apos;com.abbymcculloch.lookify.models.Artist&apos;&#x0A;- Renamed element: &apos;com.abbymcculloch.lookify.models.Song&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Artist&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.abbymcculloch.lookify.models{Artist.java[Artist" matchStrategy="1" name="Song" qualified="false" references="true" similarDeclarations="false" stamp="1681666059348" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,165 @@
+package com.abbymcculloch.otherjoins.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+
+import com.abbymcculloch.otherjoins.models.Category;
+import com.abbymcculloch.otherjoins.models.Product;
+import com.abbymcculloch.otherjoins.services.CategoryService;
+import com.abbymcculloch.otherjoins.services.ProductService;
+
+import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
+
+@Controller
+public class MainController {
+	@Autowired
+	private CategoryService categoryService;
+
+	@Autowired
+	private ProductService productService;
+
+	//READ ALL DONATIONS-----------------
+
+	@GetMapping("/categorys")
+
+	public String categoryBoard(Model model) {
+		List<Category> categoryList = categoryService.allCategorys();
+		model.addAttribute("categoryList", categoryList);
+		return "dashboard.jsp";
+	}
+
+	//READ ONE USER -----------------
+
+	@GetMapping("/products/{id}")
+	public String productDetails(@PathVariable("id")Long id, Model model) {
+		Product oneProduct = productService.findProduct(id);
+		model.addAttribute("oneCategory", oneProduct);
+		return "productDetails.jsp";
+	}
+
+	//READ ONE DONATION -----------------
+
+
+	@GetMapping("/categorys/{id}")
+	public String categoryDetails(@PathVariable("id")Long id, Model model) {
+		Category oneCategory = categoryService.findCategory(id);
+		model.addAttribute("oneCategory", oneCategory);
+		return "categoryDetails.jsp";
+	}
+
+
+	//CREATE USER--------------------
+
+	//render create page
+
+	@GetMapping("/products/new")
+	public String renderCreateProductForm(
+			@ModelAttribute("newProduct")Product newProduct) {
+		return "createProductPage.jsp";
+	}
+
+	//process create
+
+	@PostMapping("/products/new")
+	public String processCreateProductForm(
+			@Valid @ModelAttribute("newProduct") Product newProduct, 
+			BindingResult result,
+			HttpSession session
+			) {
+		if(result.hasErrors()) {
+			return "createProductPage.jsp";
+		}
+		productService.createProduct(newProduct);
+//		session for loginreg
+		session.setAttribute("productId", newProduct.getId());
+	//	
+		return "redirect:/categorys";
+	}
+
+	//CREATE DONATION--------------------
+
+	//render create page
+
+	@GetMapping("/categorys/new")
+	public String renderCreateCategoryForm(Model model) {
+		Category newCategory = new Category();
+		model.addAttribute("newCategory", newCategory);
+		
+//		drop down to pick from products - removed for login and reg
+//		model.addAttribute("productList", productService.allProducts());
+		
+		return "createCategoryPage.jsp";
+	}
+
+	//process create category - need donor key and matching id
+
+	@PostMapping("/categorys/new")
+	public String processCreateCategoryForm(
+			@Valid @ModelAttribute("newCategory") Category newCategory, 
+			BindingResult result, Model model
+			) {
+		if(result.hasErrors()) {
+//			removed for login and reg
+//			model.addAttribute("productList", productService.allProducts());
+			return "createCategoryPage.jsp";
+		}
+		categoryService.createCategory(newCategory);
+		return "redirect:/categorys";
+	}
+
+	//EDIT DONATION------------------------
+
+	//Render edit form
+	@GetMapping("/categorys/edit/{id}")
+	public String renderEditCategoryForm(
+			@PathVariable("id")Long id,
+			Model model
+			) {
+//		removed for login and reg
+//		model.addAttribute("productList", productService.allProducts());
+		Category oneCategory = categoryService.findCategory(id);
+		model.addAttribute("oneCategory", oneCategory);
+		return "editCategory.jsp";
+	}
+
+	//process edit form
+	@PutMapping("/categorys/edit/{id}")
+	public String processEditCategoryForm(
+			@PathVariable("id")Long id,
+			@Valid @ModelAttribute("oneCategory") Category oneCategory,
+			BindingResult result,
+			Model model
+			) {
+		if(result.hasErrors()) {
+//			removed for login and reg
+//			model.addAttribute("productList", productService.allProducts());
+			return "editCategory.jsp";
+		}
+		else {
+			categoryService.updateCategory(oneCategory);
+			return "redirect:/categorys";
+		}
+	}
+
+
+	//DELETE DONATION--------------------
+
+	@DeleteMapping("/categorys/{id}")
+	public String deleteCategory(@PathVariable("id")Long id) {
+		categoryService.removeCategory(id);
+		return "redirect:/categorys";
+	}
+
+
+}

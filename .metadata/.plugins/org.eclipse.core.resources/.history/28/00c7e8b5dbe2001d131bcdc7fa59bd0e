@@ -1,0 +1,5 @@
+package com.abbymcculloch.lighthouse.repositories;
+
+public interface UserRepository {
+
+}

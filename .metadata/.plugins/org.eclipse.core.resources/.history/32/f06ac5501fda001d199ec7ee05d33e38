@@ -1,0 +1,38 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>   
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page isErrorPage="true" %>  
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+</head>
+<body>
+<table>
+		<thead>
+			<tr>
+				<th> ID </th>
+				<th> donation name </th>
+				<th> Donor </th>
+				<th> Quantity </th>
+				<th colspan ="2"> Actions </th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="eachDonation" items="${donationList }" >
+			<tr>
+				<td> <c:out value="${eachDonation.id }" /> </td>
+				<td><c:out value="${eachDonation.donationName }" /></td>
+				<td> <c:out value="${eachDonation.donor.userName }" />
+				- total donation ${eachDonation.donor.sentDonations.size() }
+				 </td>
+				<td> <c:out value="${eachDonation.quantity }" /> </td>
+			</tr>
+			</c:forEach>
+		</tbody>
+		
+	</table>
+</body>
+</html>

@@ -1,0 +1,5 @@
+package com.abbymcculloch.donationuser.models;
+
+public class Donation {
+
+}

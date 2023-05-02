@@ -1,0 +1,12 @@
+package com.abbymcculloch.otherjoins.repositories;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.abbymcculloch.donationuser.models.Donation;
+
+public interface CategoryRepository {
+	List<Category> findAll();
+
+}

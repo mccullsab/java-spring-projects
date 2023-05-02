@@ -1,0 +1,111 @@
+*{
+font-family: 'Poltawski Nowy', serif;
+/* 	margin: 5px;
+ */}
+
+.header{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: white;
+}
+
+.logocombo{
+	display:flex;
+	align-items: center;
+}
+
+.logocombo img{
+	height: 70px;
+	width: 70px;
+}
+
+.links{
+	margin-right: 10px;
+}
+
+.links a{
+	text-decoration: none;
+	color: #2a3a69;
+}
+
+.body{
+	background-color: #f3f2ef;
+	padding-top: 10px;
+	padding-bottom: 500px;
+}
+
+.left{
+	border: 2px solid white;
+	background-color: white;
+	padding: 20px;
+/* 	border-radius: 20%;
+ */	margin-top: 10px;
+	margin-bottom: 10px;	
+	flex: 1
+}
+
+
+.right{
+	border: 2px solid white;
+	background-color: white;
+	padding: 20px;
+/* 	border-radius: 20%;
+ */	margin-top: 10px;
+	margin-bottom: 10px;	
+	flex: 1;
+	margin-left: 20px;
+}
+
+.bodycontain{
+	display: flex;
+}
+
+.vote{
+	display: flex;
+	justify-content: center;	
+	align-items: center;
+}
+
+.votebutton{
+	background: none;
+	border:none;
+	color: #505566;
+	font-size: 30px;
+}
+
+.votenumb{
+	color: black;
+	font-size: 25px;
+	padding-top: 15px;
+}
+
+span{
+	font-size: 35px;
+}
+
+.messagebox{
+	display: flex;
+}
+
+.form{
+	align-items: center;
+}
+
+.formbutton{
+	background-color: #a4b4b4; 
+	color: white;
+}
+
+.messagetext{
+	padding-left:10px;
+}
+
+.messagebox{
+	display: flex;
+	align-items: center;
+	border: 3px solid #f3f2ef;
+	margin-bottom: 10px;
+border-radius: 25%;
+padding: 20px;
+}

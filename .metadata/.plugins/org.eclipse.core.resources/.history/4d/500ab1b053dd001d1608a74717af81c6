@@ -1,0 +1,49 @@
+package com.abbymcculloch.bookclub.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.abbymcculloch.bookclub.models.Book;
+import com.abbymcculloch.bookclub.repositories.BookRepository;
+
+@Service
+public class BookService {
+
+	@Autowired
+	private BookRepository bookRepo;
+	
+//	FIND ALL-------------
+	public List<Book> allBooks(){
+		return bookRepo.findAll();
+	}
+	
+//	CREATE -------------
+
+	public Book createBook(Book newBook) {
+		return bookRepo.save(newBook);
+	}
+	
+//	FIND ONE-------------
+
+	public Book findBook(Long id) {
+        Optional<Book> optionalBook = bookRepo.findById(id);
+        if(optionalBook.isPresent()) {
+            return optionalBook.get();
+        } else {
+            return null;
+        }
+    }
+	
+//	UPDATE -------------
+	public Book updateBook(Book oneBook) {
+		return bookRepo.save(oneBook);
+	}
+	
+//	DELETE-------------
+	public void removeBook(Long id) {
+		bookRepo.deleteById(id);
+	}
+	
+}

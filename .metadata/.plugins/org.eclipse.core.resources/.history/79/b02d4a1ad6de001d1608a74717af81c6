@@ -1,0 +1,5 @@
+package com.abbymcculloch.blackbelt.services;
+
+public class NameService {
+
+}

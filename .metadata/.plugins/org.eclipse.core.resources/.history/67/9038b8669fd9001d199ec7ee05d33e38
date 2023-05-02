@@ -1,0 +1,9 @@
+package com.abbymcculloch.savetravels.models;
+
+
+@Entity
+@Table(name="expenses")
+public class Expense {
+
+	
+}

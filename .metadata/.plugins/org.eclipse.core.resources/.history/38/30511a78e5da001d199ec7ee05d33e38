@@ -1,0 +1,39 @@
+package com.abbymcculloch.loginreg.services;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
+
+import com.abbymcculloch.loginreg.models.LoginUser;
+import com.abbymcculloch.loginreg.models.User;
+import com.abbymcculloch.loginreg.repositories.UserRepository;
+
+
+public class UserService {
+	@Autowired
+	private UserRepository userRepo;
+	
+    // TO-DO: Write register and login methods!
+    public User register(User newUser, BindingResult result) {
+//      1. find user in db by email
+    	Optional<User> optionalUser = userRepo.findByEmail(newUser.getEmail());
+//  	2. if user is present, then reject
+    	if(optionalUser.isPresent()) {
+    		result.rejectValue("email", "unique", "This email is already registered");
+    	}
+//    	3. Reject if password doesnt match confirmation
+    	if(!newUser.getPassword().equals(newUser.getConfirm())){
+    		result.rejectValue("confirm", "match", "This email is already registered");
+    	}
+        
+        
+        
+        
+        return null;
+    }
+    public User login(LoginUser newLoginObject, BindingResult result) {
+        
+    	return null;
+    }
+}

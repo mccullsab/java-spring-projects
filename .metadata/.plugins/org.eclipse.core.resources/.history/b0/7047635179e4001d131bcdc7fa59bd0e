@@ -1,0 +1,53 @@
+*{
+font-family: 'Poltawski Nowy', serif;
+/* 	margin: 5px;
+ */}
+
+.header{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: white;
+}
+
+
+.body{
+	background-color: #f3f2ef;
+	padding-top: 10px; 
+}
+
+.left{
+	border: 2px solid white;
+	background-color: white;
+	padding: 20px;
+	border-radius: 20%;
+	margin-top: 10px;
+	margin-bottom: 10px;	
+	flex: 1
+}
+
+
+.right{
+	border: 2px solid white;
+	background-color: white;
+	padding: 20px;
+	border-radius: 20%;
+	margin-top: 10px;
+	margin-bottom: 10px;	
+	flex: 1;
+	margin-left: 20px;
+}
+
+.bodycontain{
+	display: flex;
+}
+
+.vote{
+	display: flex;
+	justify-content: space-between;
+}
+
+.votebutton{
+	background: none;
+	
+}

@@ -1,0 +1,108 @@
+package com.abbymcculloch.savetravels.controllers;
+
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+
+import com.abbymcculloch.savetravels.models.Expense;
+import com.abbymcculloch.savetravels.services.ExpenseService;
+
+import jakarta.validation.Valid;
+
+@Controller
+public class HomeController {
+	
+	@Autowired
+	private ExpenseService expenseService;
+	
+//	READ ALL + CREATE--------------
+	
+	@GetMapping("/")
+	public String mainPage(Model model) {
+//		dash
+		List<Expense> expenseList = expenseService.allExpenses();
+		model.addAttribute("expenseList", expenseList);
+//		form
+		Expense newExpense = new Expense();
+		model.addAttribute("newExpense", newExpense);
+		
+		return "main.jsp";
+	}
+	
+	@PostMapping("/process")
+	public String processMainCreate(
+			@Valid @ModelAttribute("newExpense") Expense newExpense, 
+			BindingResult result, Model model
+			) {
+		if(result.hasErrors()) {
+			model.addAttribute("expensenList", expenseService.allExpenses());
+			return "createPage.jsp";
+		}
+		expenseService.createExpense(newExpense);
+		return "redirect:/expenses";
+	}
+	
+	
+	
+//	READ ONE -----------------
+
+	@GetMapping("/expenses/{id}")
+	public String expenseDetails(@PathVariable("id")Long id, Model model) {
+		Expense oneExpense = expenseService.findExpense(id);
+		model.addAttribute("oneExpense", oneExpense);
+		return "detail.jsp";
+	}
+	
+
+	
+//	EDIT------------------------
+
+	//Render edit form
+	@GetMapping("/expenses/edit/{id}")
+	public String renderEditForm(
+			@PathVariable("id")Long id,
+			Model model
+			) {
+		Expense oneExpense = expenseService.findExpense(id);
+		model.addAttribute("oneExpense", oneExpense);
+		return "edit.jsp";
+	}
+
+	//process edit form
+	@PutMapping("/expenses/edit/{id}")
+	public String processEditForm(
+			@PathVariable("id")Long id,
+			@Valid @ModelAttribute("oneExpense") Expense oneExpense,
+			BindingResult result
+			) {
+		if(result.hasErrors()) {
+			return "edit.jsp";
+		}
+		else {
+			expenseService.updateExpense(oneExpense);
+			return "redirect:/expenses";
+		}
+	}
+
+
+//	DELETE--------------------
+
+	@DeleteMapping("/expenses/{id}")
+	public String deleteExpense(@PathVariable("id")Long id) {
+		expenseService.removeExpense(id);
+		return "redirect:/expenses";
+	}
+
+
+}

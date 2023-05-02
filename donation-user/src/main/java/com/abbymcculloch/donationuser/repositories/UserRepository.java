@@ -1,0 +1,11 @@
+package com.abbymcculloch.donationuser.repositories;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.abbymcculloch.donationuser.models.User;
+
+public interface UserRepository extends CrudRepository<User, Long> {
+	List<User> findAll();
+}

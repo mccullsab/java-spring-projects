@@ -1,0 +1,5 @@
+package com.abbymcculloch.otherjoins.repositories;
+
+public interface CategoryRepository {
+
+}

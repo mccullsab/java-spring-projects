@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.abbymcculloch.booksmvc.controllers.BooksAPI&apos; to &apos;BooksApi&apos;&#x0A;- Original project: &apos;books-mvc&apos;&#x0A;- Original element: &apos;com.abbymcculloch.booksmvc.controllers.BooksAPI&apos;&#x0A;- Renamed element: &apos;com.abbymcculloch.booksmvc.controllers.BooksApi&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;BooksAPI&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.abbymcculloch.booksmvc.controllers{BooksAPI.java[BooksAPI" matchStrategy="1" name="BooksApi" qualified="false" references="true" similarDeclarations="false" stamp="1681233775805" textual="false" version="1.0"/>
+</session>

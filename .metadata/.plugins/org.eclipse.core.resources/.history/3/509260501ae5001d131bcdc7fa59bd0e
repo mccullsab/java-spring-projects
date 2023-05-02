@@ -1,0 +1,114 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!-- c:out ; c:forEach etc. -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!-- Formatting (dates) -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<!-- form:form -->
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<!-- for rendering errors on PUT routes -->
+<%@ page isErrorPage="true"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>User Profile</title>
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" type="text/css" href="/css/profile.css">
+
+<!-- change to match your file/naming structure -->
+<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/app.js"></script>
+<!-- change to match your file/naming structure -->
+</head>
+<body>
+	<div class="header px-3 m-1">
+		<div class="logocombo">
+			<img
+				src="https://media.istockphoto.com/id/1310532475/vector/lighthouse-beacon-warning-sign-navigation-seamark-grey-icon.jpg?s=612x612&w=0&k=20&c=-NA0ZK1zx6QEkDh1Ytzb-cCQKGD5edEAaWaTZNKDn-o=">
+			<h1>${oneUser.userName }'s Profile</h1>
+		</div>
+		<div class="links">
+			<a href="/dashboard" class="btn">Dashboard</a> | <a href="/logout"
+				class="btn">Logout</a>
+		</div>
+	</div>
+
+
+	<div class="body">
+		<div class="px-3 m-3 bodycontain">
+
+			<div class="left">
+				<h2 class="text-center">${oneUser.userName }'s Information</h2>
+				<p>Username: ${oneUser.userName }</p>
+				<p>User Id: ${id }</p>
+				<p>Email: ${oneUser.email }</p>
+				<p>Privacy Setting: ${oneUser.privacy }</p>
+			</div>
+				<p>Change Your Settings</p>
+				<form action="/profile/${oneUser.id}/setpublic" method="POST">
+					<button>Public</button>
+				</form>
+				<form action="/profile/${oneUser.id}/setprivate" method="POST">
+					<button>Private</button>
+				</form>
+			
+		</div>
+		<div class="bottomcenter">
+			<h2 class="text-center">Messages Sent</h2>
+			<!-- 					<thead>
+						<tr>
+							<th>Message</th>
+							<th>From</th>
+							<th>Date</th>
+							<th>Vote</th>
+						</tr>
+					</thead> -->
+			<c:forEach var="eachMessage" items="${messageList }">
+
+
+
+				<c:choose>
+
+					<c:when test="${oneUser.id == eachMessage.from_user.id }">
+						<div class="messagebox">
+
+							<div class="messageleft">
+								<p>
+									${eachMessage.from_user.userName } messaged
+									<c:out value="${eachMessage.to_user.userName }" />
+									...
+								</p>
+								<h5 class="messagetext">
+									<c:out value="${eachMessage.message }" />
+								</h5>
+								<p class="messagetime">
+									on
+									<fmt:formatDate type = "date" value = "${eachMessage.createdAt}" />
+																	</p>
+							</div>
+							<div class="vote">
+								<form action="/messages/${eachMessage.id}/upvote" method="POST">
+									<button class="votebutton">+</button>
+								</form>
+								<p class="votenumb">
+									<c:out value="${eachMessage.vote }" />
+								</p>
+								<form action="/messages/${eachMessage.id}/downvote"
+									method="POST">
+									<button class="votebutton">-</button>
+								</form>
+							</div>
+						</div>
+
+					</c:when>
+					<c:otherwise>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+		</div>
+	</div>
+	</div>
+</body>
+</html>

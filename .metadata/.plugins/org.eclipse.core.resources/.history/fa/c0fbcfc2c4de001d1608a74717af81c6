@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+Product details Page
+<h3>Id: <c:out value="${oneProduct.id }"></c:out></h3>
+<h3>Product Name: <c:out value="${oneProduct.productName }"></c:out></h3>
+<h3>Quantity: <c:out value="${oneProduct.quantity }"></c:out></h3>
+<h3>Description: <c:out value="${oneProduct.description }"></c:out></h3>
+
+
+<h3>Donated By: <c:out value="${oneProduct.donor.userName }"></c:out></h3>
+<h3>Contact Donor: <c:out value="${oneProduct.donor.email }"></c:out></h3>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMethod"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.abbymcculloch.booksmvc.model.Book"/>
+    <fullyQualifiedTypeName name="com.github.mustachejava.Binding"/>
+    <fullyQualifiedTypeName name="org.springframework.data.repository.CrudRepository"/>
+    <fullyQualifiedTypeName name="com.abbymcculloch.savetravels.services.ExpenseService"/>
+    <fullyQualifiedTypeName name="com.abbymcculloch.savetravels.models.Expense"/>
+    <fullyQualifiedTypeName name="com.abbymcculloch.donationuser.repositories.DonationRepository"/>
+    <fullyQualifiedTypeName name="com.abbymcculloch.donationuser.models.Donation"/>
+    <fullyQualifiedTypeName name="com.abbymcculloch.donationuser.models.User"/>
+    <fullyQualifiedTypeName name="com.abbymcculloch.dojosninjas.services.NinjaService"/>
+    <fullyQualifiedTypeName name="com.abbymcculloch.dojosninjas.services.DojoService"/>
+    <fullyQualifiedTypeName name="jakarta.validation.constraints.Email"/>
+    <fullyQualifiedTypeName name="jakarta.validation.constraints.NotEmpty"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Transient"/>
+    <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
+    <fullyQualifiedTypeName name="com.abbymcculloch.loginreg.models.User"/>
+    <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="com.abbymcculloch.bookclub.models.User"/>
+    <fullyQualifiedTypeName name="com.abbymcculloch.bookclub.models.Book"/>
+    <fullyQualifiedTypeName name="com.abbymcculloch.otherjoins.services.CategoryService"/>
+    <fullyQualifiedTypeName name="com.abbymcculloch.otherjoins.services.ProductService"/>
+    <fullyQualifiedTypeName name="com.abbymcculloch.otherjoins.models.Product"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Table"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="com.abbymcculloch.otherjoins.models.Category"/>
+    <fullyQualifiedTypeName name="com.abbymcculloch.redbelt.models.User"/>
+    <fullyQualifiedTypeName name="com.abbymcculloch.redbelt.models.Name"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.ManyToMany"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.abbymcculloch.blackbelt.models.User"/>
+    <fullyQualifiedTypeName name="com.abbymcculloch.blackbelt.models.Name"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
+</qualifiedTypeNameHistroy>

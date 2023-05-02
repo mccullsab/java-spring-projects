@@ -1,0 +1,5 @@
+package com.abbymcculloch.bookclub.repositories;
+
+public interface UserRepository {
+
+}

@@ -1,0 +1,71 @@
+package com.abbymcculloch.lookify.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.abbymcculloch.lookify.models.Song;
+import com.abbymcculloch.lookify.services.SongService;
+
+@Controller
+public class SongController {
+	
+	@Autowired
+	SongService songService;
+	
+	@GetMapping("/")
+	public String home() {
+		return "home.jsp";
+	}
+	
+//	DASHBOARD - READ ALL
+	
+	@GetMapping("/dashboard")
+	public String viewAll(Model model){
+		List<Song> songList = songService.allSongs();
+		model.addAttribute("songList", songList);
+		return "dashboard.jsp";
+	}
+	
+// SONG DETAIL - READ ONE
+	
+	@GetMapping("/songs/{id}")
+	public String songDetail(@PathVariable("id")Long id,Model model) {
+		Song oneSong = songService.findSong(id);
+		model.addAttribute("oneSong",oneSong);
+		return "songDetail.jsp";
+	}
+	
+//	CREATE
+//	--------SONG DETAIL RENDER
+	@GetMapping("/songs/new")
+	public String renderCreateSong(@ModelAttribute("newSong")Song newSong) {
+		return "songCreate.jsp";
+	}
+//	--------SONG DETAIL PROCESS
+	@PostMapping("/process")
+	public String processCreateSong(@ModelAttribute("newSong")Song newSong, BindingResult result, Model model) {
+		if(result.hasErrors()) {
+			return "songCreate.jsp";
+		}
+		songService.createSong(newSong);
+		return "redirect:/songs/new";
+	}
+	
+//	DELETE
+	@DeleteMapping("/songs/{id}")
+	public String deleteSong(@PathVariable("id")Long id) {
+		songService.removeSong(id);
+		return "redirect:/";
+	}
+
+
+}

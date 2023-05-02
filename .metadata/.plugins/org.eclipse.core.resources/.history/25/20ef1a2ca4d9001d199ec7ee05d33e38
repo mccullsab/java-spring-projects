@@ -1,0 +1,43 @@
+package com.abbymcculloch.savetravels.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.abbymcculloch.savetravels.models.Expense;
+import com.abbymcculloch.savetravels.services.ExpenseService;
+
+@Controller
+public class HomeController {
+	
+	@Autowired
+	private ExpenseService expenseService;
+	
+//	READ ALL--------------
+	
+	public String expenseBoard(Model model) {
+		List<Expense> expenseList = expenseService.allExpenses();
+		model.addAttribute("expenseList", expenseList);
+		return "main.jsp";
+	}
+	
+//	READ ONE -----------------
+
+	@GetMapping("/expenses/{id}")
+	public String expenseDetails(@PathVariable("id")Long id, Model model) {
+		Expense oneExpense = expenseService.findExpense(id);
+		model.addAttribute("oneDonation", oneExpense);
+		return "details.jsp";
+	}
+	
+	
+	
+	
+	
+	
+
+}

@@ -1,0 +1,13 @@
+package com.abbymcculloch.redbelt.repositories;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.abbymcculloch.redbelt.models.Name;
+
+
+public interface NameRepository extends CrudRepository<Name, Long> {
+	List<Name> findAll();
+
+}

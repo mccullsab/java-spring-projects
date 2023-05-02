@@ -1,0 +1,15 @@
+.square{
+	border: 3px solid black;
+	padding: 10px;
+	margin: 20px;
+}
+
+.main{
+	display: flex;
+}
+
+.form{
+	border: 5px solid red;
+	background-color: purple;
+	height: 30px;
+}

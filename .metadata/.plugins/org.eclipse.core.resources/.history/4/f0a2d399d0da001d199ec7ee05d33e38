@@ -1,0 +1,13 @@
+package com.abbymcculloch.dojosninjas.repositories;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.abbymcculloch.dojosninjas.models.Dojo;
+import com.abbymcculloch.donationuser.models.User;
+
+public interface DojoRepository extends CrudRepository<Dojo, Long> {
+	List<Dojo> findAll();
+
+}

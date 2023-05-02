@@ -1,0 +1,5 @@
+package com.abbymcculloch.blackbelt.models;
+
+public class LoginUser {
+
+}

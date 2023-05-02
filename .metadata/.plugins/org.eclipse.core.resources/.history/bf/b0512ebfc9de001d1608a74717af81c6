@@ -1,0 +1,5 @@
+package com.abbymcculloch.redbelt.services;
+
+public class NameService {
+
+}

@@ -1,0 +1,49 @@
+package com.abbymcculloch.otherjoins.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.abbymcculloch.otherjoins.models.Product;
+import com.abbymcculloch.otherjoins.repositories.ProductRepository;
+
+public class ProductService {
+
+
+	@Autowired
+	private ProductRepository productRepo;
+	
+//	FIND ALL-------------
+	public List<Product> allProducts(){
+		return productRepo.findAll();
+	}
+	
+//	CREATE -------------
+
+	public Product createProduct(Product newProduct) {
+		return productRepo.save(newProduct);
+	}
+	
+//	FIND ONE-------------
+
+	public Product findProduct(Long id) {
+        Optional<Product> optionalProduct = productRepo.findById(id);
+        if(optionalProduct.isPresent()) {
+            return optionalProduct.get();
+        } else {
+            return null;
+        }
+    }
+	
+//	UPDATE -------------
+	public Product updateProduct(Product oneProduct) {
+		return productRepo.save(oneProduct);
+	}
+	
+//	DELETE-------------
+	public void removeProduct(Long id) {
+		productRepo.deleteById(id);
+	}
+	
+}

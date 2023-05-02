@@ -1,0 +1,51 @@
+package com.abbymcculloch.dojosninjas.services;
+
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
+
+@Service
+public class DojoService {
+
+	@Autowired
+	private DojoRepository dojoRepo;
+	
+//	FIND ALL-------------
+	public List<Dojo> allDojos(){
+		return dojoRepo.findAll();
+	}
+	
+//	CREATE -------------
+
+	public Dojo createDojo(Dojo newDojo) {
+		return dojoRepo.save(newDojo);
+	}
+	
+//	FIND ONE-------------
+
+	public Dojo findDojo(Long id) {
+        Optional<Dojo> optionalDojo = dojoRepo.findById(id);
+        if(optionalDojo.isPresent()) {
+            return optionalDojo.get();
+        } else {
+            return null;
+        }
+    }
+	
+//	UPDATE -------------
+	public Dojo updateDojo(Dojo oneDojo) {
+		return dojoRepo.save(oneDojo);
+	}
+	
+//	DELETE-------------
+	public void removeDojo(Long id) {
+		dojoRepo.deleteById(id);
+	}
+	
+}
+

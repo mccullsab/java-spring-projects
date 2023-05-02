@@ -1,0 +1,17 @@
+INDEX VERSION 1.4+/Users/abbymcculloch/Documents/Coding Dojo Admin/STS/SpringProjects/SpringProjects/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+3059759296.index
+1463321034.index
+423290005.index
+1512947111.index
+4218131989.index
+1574276447.index
+3484018958.index
+1191101820.index
+3132524101.index
+3067809128.index
+1742321053.index
+434402204.index
+21813251.index
+2069138740.index
+2146832173.index
+1853714484.index

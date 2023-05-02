@@ -1,0 +1,5 @@
+package com.abbymcculloch.dojosninjas.models;
+
+public class Ninja {
+
+}

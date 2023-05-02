@@ -1,0 +1,12 @@
+package com.abbymcculloch.lookify.services;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class SongService {
+	private final SongRepository songRepository;
+	
+	public SongRepository(SongRepository songRepository) {
+		this.songRepository = songRepository;
+	}
+}

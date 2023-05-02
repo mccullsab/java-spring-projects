@@ -1,0 +1,18 @@
+package com.abbymcculloch.mvcdemo.repositories;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+
+
+@Repository
+
+public interface ExpenseRepository extends CrudRepository<Expense, Long> {
+//	this is all I need
+	List<Expense> findAll();
+	
+//	extras depend on model
+//	List<Donation> findByDonor(String donor);
+}

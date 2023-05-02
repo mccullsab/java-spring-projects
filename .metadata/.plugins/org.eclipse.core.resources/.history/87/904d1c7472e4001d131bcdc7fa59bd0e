@@ -1,0 +1,12 @@
+*{
+	font-family: 'Lato', sans-serif;
+	margin: 10px;
+	
+}
+
+.header{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: white;
+}

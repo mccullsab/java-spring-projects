@@ -1,0 +1,9 @@
+
+
+spring.datasource.url=jdbc:mysql://localhost:3306/products_categories_java_schema
+spring.datasource.password=routeroute
+spring.jpa.hibernate.ddl-auto=update
+spring.mvc.hiddenmethod.filter.enabled=true
+
+
+spring.mvc.view.prefix=/WEB-INF/

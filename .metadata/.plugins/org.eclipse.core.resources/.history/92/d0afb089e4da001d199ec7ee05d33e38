@@ -1,0 +1,21 @@
+package com.abbymcculloch.loginreg.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.abbymcculloch.loginreg.repositories.UserRepository;
+
+
+public class UserService {
+	@Autowired
+	private UserRepository userRepo;
+	
+    // TO-DO: Write register and login methods!
+    public User register(User newUser, BindingResult result) {
+        // TO-DO: Additional validations!
+        return null;
+    }
+    public User login(LoginUser newLoginObject, BindingResult result) {
+        // TO-DO: Additional validations!
+        return null;
+    }
+}

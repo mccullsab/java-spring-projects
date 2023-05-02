@@ -1,0 +1,96 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!-- c:out ; c:forEach etc. -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!-- Formatting (dates) -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<!-- form:form -->
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<!-- for rendering errors on PUT routes -->
+<%@ page isErrorPage="true"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/main.css">
+<!-- change to match your file/naming structure -->
+<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/app.js"></script>
+<!-- change to match your file/naming structure -->
+</head>
+<body>
+	<div
+		class="flex d-flex justify-content-between align-items-center px-3">
+		<h1>Lighthouse Activity</h1>
+		<div class="flex d-flex">
+			<a href="/logout">Logout</a>
+		</div>
+	</div>
+
+	<br>
+	<div class="flex d-flex align-items-center px-3">
+		<div>
+			<div class="px-3">
+				<form:form action="/dashboard" method="POST"
+					modelAttribute="newMessage">
+					<form:hidden path="from_user" value="${userId }" />
+					<form:select path="to_user">
+						<c:forEach var="eachUser" items="${toUserList }">
+							<form:option value="${eachUser }" label="${eachUser.userName }" />
+						</c:forEach>
+					</form:select>
+					<p class=form-group>
+						<form:label path="message"> Message</form:label>
+						<form:textarea path="message"></form:textarea>
+						<form:errors path="message" />
+					</p>
+					<div class="flex d-flex mx-3">
+						<button type="submit" class="btn btn-primary mx-3">Send</button>
+					</div>
+				</form:form>
+			</div>
+
+
+		</div>
+		<div class="px-3 f-2">
+			<h2>Messages</h2>
+			<table class=table>
+				<thead>
+					<tr>
+						<th>Message</th>
+						<th>From</th>
+						<th>Date</th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="eachMessage" items="${messageList }">
+						<c:when test="${eachMessage.to_user.id == userId }">
+
+							<tr>
+								<td><c:out value="${eachMessage.message }" /></td>
+								<td><c:out value="${eachMessage.to_user.userName }" /></td>
+								<td><c:out value="${eachMessage.createdAt }" /></td>
+
+							</tr>
+						</c:when>
+						<c:otherwise>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</c:otherwise>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
+

@@ -1,0 +1,5 @@
+package com.abbymcculloch.savetravels.repositories;
+
+public interface ExpenseRepository extends CrudReposity<Donation, Long> {
+	List<Donation> findAll();
+}

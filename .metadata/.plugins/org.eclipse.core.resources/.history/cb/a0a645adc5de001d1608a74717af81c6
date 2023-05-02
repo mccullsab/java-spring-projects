@@ -1,0 +1,55 @@
+package com.abbymcculloch.otherjoins.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.abbymcculloch.otherjoins.models.Category;
+import com.abbymcculloch.otherjoins.repositories.CategoryRepository;
+
+@Service
+public class CategoryService {
+
+
+
+	@Autowired
+	private CategoryRepository categoryRepo;
+	
+//	FIND ALL-------------
+	public List<Category> allCategorys(){
+		return categoryRepo.findAll();
+	}
+	
+//	CREATE -------------
+
+	public Category createCategory(Category newCategory) {
+		return categoryRepo.save(newCategory);
+	}
+	
+//	FIND ONE-------------
+
+	public Category findCategory(Long id) {
+        Optional<Category> optionalCategory = categoryRepo.findById(id);
+        if(optionalCategory.isPresent()) {
+            return optionalCategory.get();
+        } else {
+            return null;
+        }
+    }
+	
+//	UPDATE -------------
+	public Category updateCategory(Category oneCategory) {
+		return categoryRepo.save(oneCategory);
+	}
+	
+//	DELETE-------------
+	public void removeCategory(Long id) {
+		categoryRepo.deleteById(id);
+	}
+	
+}
+
+
+

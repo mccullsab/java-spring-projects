@@ -1,0 +1,5 @@
+package com.abbymcculloch.dojosninjas.controllers;
+
+public class HomeController {
+
+}

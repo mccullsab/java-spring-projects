@@ -1,0 +1,9 @@
+package com.abbymcculloch.lookify.models;
+
+import jakarta.persistence.Entity;
+
+@Entity
+@Table(name="artist")
+public class Artist {
+
+}

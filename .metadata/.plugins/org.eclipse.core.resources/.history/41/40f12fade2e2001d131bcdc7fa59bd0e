@@ -1,0 +1,16 @@
+package com.abbymcculloch.lighthouse.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.abbymcculloch.lighthouse.services.MessageService;
+import com.abbymcculloch.lighthouse.services.UserService;
+
+public class HomeController {
+    @Autowired
+    private UserService userService;
+    
+    @Autowired
+    private MessageService messageService;
+    
+    
+}

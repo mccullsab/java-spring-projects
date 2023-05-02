@@ -1,0 +1,71 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!-- c:out ; c:forEach etc. -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!-- Formatting (dates) -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<!-- form:form -->
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<!-- for rendering errors on PUT routes -->
+<%@ page isErrorPage="true"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Edit</title>
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/main.css">
+<!-- change to match your file/naming structure -->
+<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/app.js"></script>
+<!-- change to match your file/naming structure -->
+</head>
+<body>
+	<div
+		class="flex d-flex justify-content-between align-items-center px-3">
+		<h1>
+			Change
+			<c:out value="${oneName.babyName}"></c:out>
+		</h1>
+		<a href="/names">home</a>
+	</div>
+	<form:form action="/names/${oneName.id }/edit" method="PUT"
+		modelAttribute="oneName" class="px-3">
+		<form:hidden path="user" />
+		<p class=form-group>
+			<form:label path="babyName"> Name</form:label>
+			<form:input type="text" value="${oneName.babyName}" disabled="true"/>
+			<form:errors path="babyName" />
+		</p>
+		<form:hidden path="babyName" />
+		<p>
+			<form:label path="gender">Gender</form:label>
+			<form:select path="gender">
+				<form:option value="Male" label="Male" />
+				<form:option value="Female" label="Female" />
+				<form:option value="Neutral" label="Neutral" />
+			</form:select>
+		</p>
+		<p class=form-group>
+			<form:label path="origin"> Origin</form:label>
+			<form:input type="text" path="origin" />
+			<form:errors path="origin" />
+		</p>
+		<p class=form-group>
+			<form:label path="meaning"> Meaning</form:label>
+			<form:textarea path="meaning"></form:textarea>
+			<form:errors path="meaning" />
+		</p>
+			<button type="submit" class="btn btn-primary mx-3">Submit</button>
+	</form:form>
+	<div class="ml-3">
+	<a href="/names" class="btn btn-secondary px-3 mt-3 ml-3">Cancel</a>
+	</div>
+	<form action="/names/${oneName.id}" method="POST" class="px-3 mt-3">
+		<input type="hidden" name="_method" value="delete" />
+		<button type="submit" class="btn btn-danger px-3">Delete</button>
+	</form>
+	
+</body>
+</html>
+

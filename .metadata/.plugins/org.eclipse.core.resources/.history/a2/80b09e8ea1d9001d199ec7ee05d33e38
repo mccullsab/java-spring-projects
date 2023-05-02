@@ -1,0 +1,31 @@
+package com.abbymcculloch.savetravels.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+
+import com.abbymcculloch.savetravels.services.ExpenseService;
+
+@Controller
+public class HomeController {
+	
+	@Autowired
+	private ExpenseService expenseService;
+	
+//	READ ALL--------------
+	
+	public String expenseBoard(Model model) {
+		List<Expense> expenseList = expenseService.allExpenses();
+		model.addAttribute("expenseList", expenseList);
+		return "main.jsp";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

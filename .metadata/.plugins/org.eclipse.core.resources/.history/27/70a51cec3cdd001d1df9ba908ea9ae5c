@@ -1,0 +1,9 @@
+package com.abbymcculloch.bookclub.repositories;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface BookRepository extends CrudRepository<Donation, Long> {
+	List<Donation> findAll();
+}

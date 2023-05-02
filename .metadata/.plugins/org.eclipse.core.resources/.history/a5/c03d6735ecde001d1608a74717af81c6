@@ -1,0 +1,19 @@
+package com.abbymcculloch.blackbelt.repositories;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.abbymcculloch.blackbelt.models.Name;
+import com.abbymcculloch.blackbelt.models.User;
+
+
+@Repository
+public interface NameRepository extends CrudRepository<Name, Long> {
+	List<Name> findAll();
+	Name findByIdIs(Long id);
+	List<Name> findAllByUsers(User user);
+	List<Name> findByUsersNotContains(User user);
+
+}

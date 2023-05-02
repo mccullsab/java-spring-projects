@@ -1,0 +1,5 @@
+package com.abbymcculloch.lighthouse.controllers;
+
+public class HomeController {
+
+}

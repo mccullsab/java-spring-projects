@@ -1,0 +1,22 @@
+*{
+	font-family: 'Lato', sans-serif;
+/* 	margin: 5px;
+ */}
+
+.header{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: white;
+}
+
+
+.body{
+	background-color: #f3f2ef;
+	padding-top: 10px; 
+}
+
+.right{
+	border: 2px solid black;
+	border-radius: 15%;
+}

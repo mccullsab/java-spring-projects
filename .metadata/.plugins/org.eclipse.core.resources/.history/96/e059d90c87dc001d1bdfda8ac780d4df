@@ -1,0 +1,40 @@
+package com.abbymcculloch.lookify.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.abbymcculloch.lookify.models.Song;
+import com.abbymcculloch.lookify.services.SongService;
+
+@Controller
+public class SongController {
+	
+	@Autowired
+	SongService songService;
+	
+	@GetMapping("/")
+	public String home() {
+		return "home.jsp";
+	}
+	
+//	DASHBOARD - READ ALL
+	
+	@GetMapping("/dashboard")
+	public String viewAll(Model model){
+//		List<Song> songList = songService.allSongs();
+		model.addAttribute("songList", songList);
+		return "dashboard.jsp";
+	}
+	
+// SONG DETAIL = READ ONE
+	
+	@GetMapping("/songs/{id}")
+	public String songDetail(Model model, )
+	
+	
+
+}

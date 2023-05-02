@@ -1,0 +1,11 @@
+package com.abbymcculloch.otherjoins.repositories;
+
+import java.util.List;
+
+import com.abbymcculloch.otherjoins.models.Category;
+
+
+public interface CategoryRepository {
+	List<Category> findAll();
+
+}
